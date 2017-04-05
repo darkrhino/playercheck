@@ -1,0 +1,8 @@
+section{
+  &.company{
+    & .cover{
+      max-height: 460px;
+      overflow: hidden;
+    }
+  }
+}

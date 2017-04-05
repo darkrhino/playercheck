@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
+
+include_once 'pages.php';
+Route::get('/home', 'HomeController@index');

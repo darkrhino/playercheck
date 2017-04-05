@@ -2,8 +2,32 @@
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
+// Bootstrap
+@import "../../../public/components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Font Awesome
+$fa-font-path: "../components/font-awesome/fonts" !default;
+@import "../../../public/components/font-awesome/scss/font-awesome";
+
 // Variables
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// Components
+@import "components/site";
+@import "components/forms";
+@import "components/hero";
+@import "components/footer";
+@import "components/search";
+@import "components/featured";
+@import "components/grid";
+@import "components/navbar";
+@import "components/pricing_table";
+@import "components/company";
+
+// Admin
+@import "admin/variables";
+@import "admin/backgrounds";
+@import "admin/elements";
+@import "admin/chat";
+@import "admin/ibox";
+

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace PlayerCheck\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use PlayerCheck\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
