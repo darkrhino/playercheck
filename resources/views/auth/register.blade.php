@@ -1,76 +1,101 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+    <div role="main">
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+        <div class="bg-shade-gradient">
+            <div class="setup-wrapper">
+                <div class="setup-header setup-org">
+                    <h1>Join PlayerCheck</h1>
+                    <p class="lead">PlayerCheck brings everyone together to sell and buy safely.</p>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    <!-- Show steps if user is creating an organiation -->
+                    <ol class="steps">
+                        <li class="current">
+                            <strong class="step">Step 1:</strong>
+                            Create personal account
+                        </li>
+                        <li>
+                            <strong class="step">Step 2:</strong>
+                            Apply for Membership
+                        </li>
+                        <li>
+                            <strong class="step">Step 3:</strong>
+                            Be Protected
+                        </li>
+                    </ol>
                 </div>
+
+                <div class="setup-main ">
+                    <div class="setup-form-container">
+                        <noscript>
+                            &lt;p class="error"&gt;PlayerCheck does not support browsers with JavaScript disabled.&lt;br&gt;
+                            We promise we’ll behave.&lt;/p&gt;
+                        </noscript>
+
+                        {!! Form::open(['class' => 'setup-form js-signup-form', 'role' => 'form', 'route' => 'register']) !!}
+                        <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="ld5YewLUbAWGg6eNb5MarmPY0cVPCud+OgfQS838f9Tl4i1S9TS+nc/nm8KwDBLp1EFnzksD5cfeMB5vhMJLZA=="></div>
+
+                            <h2 class="setup-form-title mb-3">
+                                Create your personal account
+                            </h2>
+                            <dl class="form-group">
+                                <dt class="input-label">
+                                    <label for="first_name">First Name</label>
+                                </dt>
+                                <dd>
+                                    <input class="form-control" id="first_name" name="first_name" size="30" type="text" value="{{old('first_name')}}">
+                                </dd>
+                            </dl>
+                            <dl class="form-group">
+                                <dt class="input-label">
+                                    <label for="last_name">Last Name</label>
+                                </dt>
+                                <dd>
+                                    <input class="form-control" id="last_name" name="last_name" size="30" type="text" value="{{old('last_name')}}">
+                                    <p class="note">We need both your first and last name. Only used for validation.</p>
+                                </dd>
+                            </dl>
+                            <dl class="form-group">
+                                <dt class="input-label">
+                                    <label for="email">Email Address</label>
+                                </dt>
+                                <dd>
+                                    <input class="form-control" id="email" name="email" size="30" type="email" value="{{old('email')}}">
+                                    <p class="note">You will occasionally receive account related emails.</p>
+                                </dd>
+                            </dl>
+
+                            <dl class="form-group">
+                                <dt class="input-label">
+                                    <label for="password">Password</label>
+                                </dt>
+                                <dd>
+                                    <input class="form-control" id="password" name="password" size="30" type="password">
+                                </dd>
+                            </dl>
+
+                            <button type="submit" class="btn btn-primary">Create an account</button>
+
+                        {!! Form::close() !!}
+                    </div> <!-- /.setup-form-container -->
+                </div> <!-- /.setup-main -->
+
+                {{--<div class="setup-secondary">
+                    <div class="setup-info-module">
+                        <h2>Reasons to Register</h2>
+                        <ul class="features-list">
+                            <li>Nothing Yet We are still Building..</li>
+                            <li class="list-divider"></li>
+
+                        </ul>
+                    </div>
+                </div>--}}
             </div>
         </div>
+
+        <div class="modal-backdrop js-touch-events"></div>
+
     </div>
-</div>
 @endsection

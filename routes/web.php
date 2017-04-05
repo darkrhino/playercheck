@@ -13,5 +13,5 @@
 
 Auth::routes();
 
+include_once 'dashboard.php';
 include_once 'pages.php';
-Route::get('/home', 'HomeController@index');

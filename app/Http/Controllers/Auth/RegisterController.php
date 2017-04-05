@@ -2,7 +2,8 @@
 
 namespace PlayerCheck\Http\Controllers\Auth;
 
-use PlayerCheck\User;
+use Carbon\Carbon;
+use PC\User\User;
 use PlayerCheck\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -47,10 +48,14 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //$data['date_of_birth'] = $data['dob_y'].'-'.$data['dob_m'].'-'.$data['dob_d'];
+
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required|min:6',
+            /*'date_of_birth' => 'required|date|before:'.Carbon::today()->addYears(-18)->format('Y-m-d'),*/
         ]);
     }
 
@@ -62,10 +67,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //$data['date_of_birth'] = $data['dob_y'].'-'.$data['dob_m'].'-'.$data['dob_d'];
+
         return User::create([
-            'name' => $data['name'],
+            'last_name' => $data['last_name'],
+            'first_name' => $data['first_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            /*'date_of_birth' => $data['date_of_birth'],*/
         ]);
     }
 }

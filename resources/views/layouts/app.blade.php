@@ -31,6 +31,7 @@
                     <a href="{{route('pages.home')}}" class="js-selected-navigation-item nav-item">
                         PlayerCheck <i class="fa fa-check"></i>
                     </a>
+                    @if(!Auth::check())
                     <a href="{{route('pages.features')}}" class="js-selected-navigation-item nav-item">
                         Features
                     </a>
@@ -43,13 +44,20 @@
                     <a href="{{route('pages.pricing')}}" class="js-selected-navigation-item nav-item">
                         Pricing?
                     </a>
+                    @endif
                 </nav>
 
+                @if(!Auth::check())
                 <div class="site-header-actions">
                     <a class="text-bold site-header-link" href="/login">Sign in</a>
                     <span class="text-gray">or</span>
                     <a class="text-bold site-header-link" href="/register">Sign up</a>
                 </div>
+                @else
+                <div class="site-header-actions">
+                    <a class="text-bold site-header-link" href="#">Logout</a>
+                </div>
+                @endif
             </div>
         </div>
     </header>
