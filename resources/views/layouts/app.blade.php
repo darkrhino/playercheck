@@ -34,13 +34,13 @@
                     @if(!Auth::check())
                     <a href="{{route('pages.features')}}" class="js-selected-navigation-item nav-item">
                         Features
-                    </a>
+                    </a>{{--
                     <a href="{{route('pages.business')}}" class="js-selected-navigation-item nav-item">
                         Business
                     </a>
                     <a href="{{route('pages.explore')}}" class="js-selected-navigation-item nav-item">
                         Explore
-                    </a>
+                    </a>--}}
                     <a href="{{route('pages.pricing')}}" class="js-selected-navigation-item nav-item">
                         Pricing?
                     </a>

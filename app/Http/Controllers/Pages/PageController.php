@@ -25,4 +25,14 @@ class PageController extends Controller
     {
         return view('pages.features');
     }
+
+    public function business()
+    {
+        return view('pages.business');
+    }
+
+    public function pricing()
+    {
+        return view('pages.pricing');
+    }
 }
