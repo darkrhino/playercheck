@@ -9,30 +9,36 @@ use PlayerCheck\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
-    public function __construct()
+
+    public function index()
     {
         if(Auth::check()){
             return Redirect::route('dashboard.index');
         }
-    }
-
-    public function index()
-    {
         return view('pages.index');
     }
 
     public function features()
     {
+        if(Auth::check()){
+            return Redirect::route('dashboard.index');
+        }
         return view('pages.features');
     }
 
     public function business()
     {
+        if(Auth::check()){
+            return Redirect::route('dashboard.index');
+        }
         return view('pages.business');
     }
 
     public function pricing()
     {
+        if(Auth::check()){
+            return Redirect::route('dashboard.index');
+        }
         return view('pages.pricing');
     }
 }
