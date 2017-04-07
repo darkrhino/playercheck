@@ -55,7 +55,7 @@
                 </div>
                 @else
                 <div class="site-header-actions">
-                    <a class="text-bold site-header-link" href="#">Logout</a>
+                    <a class="text-bold site-header-link" href="/logout">Logout</a>
                 </div>
                 @endif
             </div>
