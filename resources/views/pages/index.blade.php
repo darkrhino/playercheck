@@ -43,7 +43,7 @@
                     PlayerCheck brings everyone together to sell and buy safely, move transactions forward, and learn from each other along the way.
                 </p>
                 <p class="text-center mb-5 col-md-8 mx-auto">
-                    <a href="{{route('pages.business')}}">See how people work together on PlayerCheck</a>
+                    <a href="{{route('business.index')}}">See how people work together on PlayerCheck</a>
                 </p>
                 <div class="text-center">
                     <a href="/business/join" class="btn btn-large btn-blue">Sign up your business</a>
