@@ -11,7 +11,6 @@
 |
 */
 
-Auth::routes();
-
+include_once 'auth.php';
 include_once 'dashboard.php';
 include_once 'pages.php';
