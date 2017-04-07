@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '1266990276752653',
         'client_secret' => '0d70da6ca2540f8390ea89dd70b73e51',
-        'redirect' => 'http://localhost:81/login/facebook/callback',
+        'redirect' => 'http://playercheck.co.uk/login/facebook/callback',
     ],
 
 ];
