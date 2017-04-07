@@ -22,7 +22,7 @@
         ]); ?>
     </script>
 </head>
-<body class="site-header-dark">
+<body class="site-header-dark @yield('body')">
 <div class="position-relative js-header-wrapper ">
     <header class="site-header js-details-container Details" role="banner">
         <div class="container-responsive">
