@@ -15,3 +15,4 @@ Auth::routes();
 
 include_once 'dashboard.php';
 include_once 'pages.php';
+include_once 'business.php';
