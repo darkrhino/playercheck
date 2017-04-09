@@ -1,9 +1,7 @@
 @extends('layouts.app')
-
+@section('title', 'Register your Account')
 @section('content')
     <div role="main">
-
-
         <div class="bg-shade-gradient">
             <div class="setup-wrapper">
                 <div class="setup-header setup-org">

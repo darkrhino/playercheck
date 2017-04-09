@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9849713518721716",
+            enable_page_level_ads: true
+        });
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@yield('meta_description', 'A better way to play together')">
+    <meta name="keywords" content="@yield('meta_keywords', 'PlayerCheck, UKARA, VCRA, Validation, Airsoft, Used Sales, Used Airsoft')">
     @yield('meta')
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', '') :: PlayerCheck</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Bitter:400,700|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Oswald%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7COpen+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7CTitillium+Web%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7CRoboto+Condensed%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&ver=1.0.0" rel="stylesheet">
+
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
     @yield('styles')
 
     <!-- Scripts -->
@@ -21,47 +33,45 @@
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="site-header-dark @yield('body')">
-<div class="position-relative js-header-wrapper ">
-    <header class="site-header js-details-container Details" role="banner">
-        <div class="container-responsive">
-            <div class="site-header-menu">
-                <nav class="site-header-nav">
-                    <a href="{{route('pages.home')}}" class="js-selected-navigation-item nav-item">
-                        PlayerCheck <i class="fa fa-check"></i>
-                    </a>
-                    @if(!Auth::check())
-                    <a href="{{route('pages.features')}}" class="js-selected-navigation-item nav-item">
-                        Features
-                    </a>{{--
-                    <a href="{{route('pages.business')}}" class="js-selected-navigation-item nav-item">
-                        Business
-                    </a>
-                    <a href="{{route('pages.explore')}}" class="js-selected-navigation-item nav-item">
-                        Explore
-                    </a>--}}
-                    <a href="{{route('pages.pricing')}}" class="js-selected-navigation-item nav-item">
-                        Pricing?
-                    </a>
-                    @endif
-                </nav>
-
-                @if(!Auth::check())
-                <div class="site-header-actions">
-                    <a class="text-bold site-header-link" href="/login">Sign in</a>
-                    <span class="text-gray">or</span>
-                    <a class="text-bold site-header-link" href="/register">Sign up</a>
-                </div>
-                @else
-                <div class="site-header-actions">
-                    <a class="text-bold site-header-link" href="/logout">Logout</a>
-                </div>
-                @endif
-            </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{route('pages.home')}}">PlayerCheck <i class="fa fa-check"></i></a>
         </div>
-    </header>
-</div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{route('pages.features')}}">Features</a></li>
+                <li><a href="{{route('pages.pricing')}}">Pricing?</a></li>
+            </ul>
+            @if(!Auth::check())
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+            @else
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            @endif
+        </div><!--/.navbar-collapse -->
+    </div>
+</nav>
 @yield('content')
 {{--@include('layouts.footer')--}}
 @if(env('APP_ENV') == 'production'))

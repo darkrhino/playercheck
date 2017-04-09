@@ -1,9 +1,23 @@
 @extends('layouts.app')
+@section('title', 'Login to your Account')
 @section('body', 'logged-out env-production session-authentication page-responsive min-width-0')
 @section('content')
     <div role="main" style="padding-top: 20px;">
         <div id="js-pjax-container" data-pjax-container="">
             <div class="auth-form px-3" id="login">
+                @if (count($errors) > 0)
+                <div id="js-flash-container">
+                    <div class="flash flash-full flash-error">
+                        <div class="container">
+                            <ul class="list-unstyled">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 {!! Form::open(['accept-charset' => 'UTF-8', 'role' => 'form', 'route' => 'login']) !!}
                     <div class="auth-form-header p-0">
                         <h1>Sign in to PlayerCheck</h1>
