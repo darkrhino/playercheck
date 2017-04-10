@@ -49,6 +49,27 @@
                                 </li>
                             </ul>
                         </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="ibox">
+                                        <div class="ibox-title">
+                                            <h5>
+                                                <a target="new" rel="nofollow" href="http://www.ukapu.org.uk/">
+                                                    Support the UK Airsoft Players Union - UKAPU
+                                                </a>
+                                            </h5>
+                                        </div>
+                                        <div class="ibox-image">
+                                            <a href="http://www.ukapu.org.uk/" target="new" rel="nofollow">
+                                                <img src="https://scontent-lht6-1.xx.fbcdn.net/v/t31.0-8/17159285_1196466900466278_5589780335460197470_o.jpg?oh=6f6ff95f06eae8614b12bfecba0227cf&oe=595B080D"
+                                                     alt="UK Airsoft Players Union- UKAPU" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -44,12 +44,12 @@
                         PlayerCheck brings everyone together to sell and buy safely, move transactions forward, and learn from each other along the way.
                     </p>
                     <p class="mb-5 mx-auto">
-                        <a href="http://playercheck.co.uk/business">See how people work together on PlayerCheck</a>
+                        <a href="{{route('pages.features')}}">See how people work together on PlayerCheck</a>
                     </p>
                 </div>
                 <div class="col-xs-12">
                     <div class="text-center">
-                        <a href="/business/join" class="btn btn-large btn-blue">Sign up your business</a>
+                        <a href="{{route('business.create')}}" class="btn btn-large btn-blue">Sign up your business</a>
                     </div>
                 </div>
             </div>
