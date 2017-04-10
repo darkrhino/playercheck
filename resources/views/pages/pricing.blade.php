@@ -43,8 +43,6 @@
                     </p>
                     <a class="btn btn-outline-purple f4 py-2 px-3" href="/business">Learn more</a>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-6">
                     <h2 class="alt-h3 mt-0 mb-1">
                         Protect yourself

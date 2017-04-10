@@ -28533,6 +28533,7 @@ body.body-small .vote-icon {
   margin-bottom: 25px;
   margin-top: 0;
   padding: 0;
+  border: 1px solid #ddd;
 }
 
 .ibox.collapsed .ibox-content {

@@ -5,6 +5,7 @@ namespace PC\User;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laratrust\Traits\LaratrustUserTrait;
+use PC\Business\Business;
 
 class User extends Authenticatable
 {
@@ -36,5 +37,12 @@ class User extends Authenticatable
     public function getTitledFullNameAttribute()
     {
         return $this->title.' '.$this->getFullNameAttribute();
+    }
+
+    public function businesses()
+    {
+        return $this->belongsToMany(Business::class, 'business_members')
+            ->withPivot('added_by_id')
+            ->withTimestamps();
     }
 }

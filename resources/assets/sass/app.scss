@@ -8,5 +8,11 @@
 $fa-font-path: "../../components/font-awesome/fonts" !default;
 @import "../../../public/components/font-awesome/scss/font-awesome";
 
+@import "admin/variables";
+@import "admin/backgrounds";
+@import "admin/elements";
+@import "admin/chat";
+@import "admin/ibox";
+
 @import "github";
 @import "components/styles";
