@@ -11,10 +11,10 @@
             </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Welcome, {!! Auth::user()->name !!}</span>
+                    <span class="m-r-sm text-muted welcome-message">Welcome, {!! Auth::user()->fullName !!}</span>
                 </li>
                 <li>
-                    <a href="login.html">
+                    <a href="/">
                         <i class="fa fa-sign-out"></i> Log out
                     </a>
                 </li>

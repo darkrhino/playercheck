@@ -14943,7 +14943,7 @@ a.tabnav-extra:hover {
   right: 100%;
 }
 
-@media screen and (min-width: 0 \0 ) {
+@media screen and (min-width: 0 \0 ) {
   .tooltipped-multiline::after {
     width: 250px;
   }
@@ -25155,6 +25155,7 @@ a.label-link:hover {
   position: relative;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-top: 62px;
   margin-bottom: 20px;
   border-bottom: 1px solid #e1e4e8;
 }
@@ -49219,6 +49220,18 @@ body.site-header-dark .jumbotron {
   background-image: url(/images/modules/site/heroes/home-code-bg-alt-01.svg), linear-gradient(180deg, #24292e, #2b3137);
   background-position: center -75px, 0 0;
   background-size: 100% auto;
+}
+
+body.site-header-dark .navbar-inverse {
+  min-height: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: -1px;
+  font-size: 16px;
+  background-clip: padding-box;
+  border-bottom: 1px #e1e4e8 solid;
+  background-color: #24292e;
+  border-bottom: 0;
 }
 
 /*# sourceMappingURL=app.css.map */

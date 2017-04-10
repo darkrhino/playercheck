@@ -22,7 +22,7 @@ return [
     |
     */
     'user_models' => [
-        'users' => 'App\User',
+        'users' => 'PC\User\User',
     ],
 
     /*
@@ -34,7 +34,7 @@ return [
     | the role if it is in a different namespace.
     |
     */
-    'role' => 'App\Role',
+    'role' => 'PC\User\Role',
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     | Update the permission if it is in a different namespace.
     |
     */
-    'permission' => 'App\Permission',
+    'permission' => 'PC\User\Permission',
 
     /*
     |--------------------------------------------------------------------------
@@ -128,12 +128,12 @@ return [
     | Available: abort|redirect
     |--------------------------------------------------------------------------
     */
-    'middleware_handling' => 'abort',
+    'middleware_handling' => 'redirect',
 
     /*
     |--------------------------------------------------------------------------
     | Parameter passed to the middleware_handling method
     |--------------------------------------------------------------------------
     */
-    'middleware_params' => '403',
+    'middleware_params' => '/',
 ];

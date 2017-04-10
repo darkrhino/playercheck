@@ -55,16 +55,21 @@
             <a class="navbar-brand" href="{{route('pages.home')}}">PlayerCheck <i class="fa fa-check"></i></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+            @if(!Auth::check())
             <ul class="nav navbar-nav">
                 <li><a href="{{route('pages.features')}}">Features</a></li>
                 <li><a href="{{route('pages.pricing')}}">Pricing?</a></li>
             </ul>
-            @if(!Auth::check())
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
             </ul>
             @else
+            <ul class="nav navbar-nav">
+                <li><a href="{{route('requests.index')}}">Requests</a></li>
+                <li><a href="{{route('maps.stores')}}">Store Map</a></li>
+                <li><a href="{{route('maps.sites')}}">Sites Map</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/logout">Logout</a></li>
             </ul>

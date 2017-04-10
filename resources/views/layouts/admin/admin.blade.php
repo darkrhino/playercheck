@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Career Penguin') :: Admin Control Panel</title>
+    <title>@yield('title', 'PlayerCheck') :: Admin Control Panel</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -11,7 +11,7 @@
     <!-- Toastr style -->
     <link href="{{secure_asset('components/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-    <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{elixir('css/admin.css')}}" rel="stylesheet">
     {{-- Fallback FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 </head>

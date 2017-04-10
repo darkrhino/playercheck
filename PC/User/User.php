@@ -4,10 +4,11 @@ namespace PC\User;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use LaratrustUserTrait, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -26,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
+
+    public function getTitledFullNameAttribute()
+    {
+        return $this->title.' '.$this->getFullNameAttribute();
+    }
 }

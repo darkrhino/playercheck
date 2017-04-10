@@ -17,5 +17,16 @@ body{
       background-position: center -75px, 0 0;
       background-size: 100% auto;
     }
+    & .navbar-inverse{
+      min-height: 10px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      margin-bottom: -1px;
+      font-size: 16px;
+      background-clip: padding-box;
+      border-bottom: 1px #e1e4e8 solid;
+      background-color: #24292e;
+      border-bottom: 0;
+    }
   }
 }

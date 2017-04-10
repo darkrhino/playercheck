@@ -4,7 +4,7 @@
             <li class="nav-header">
                 <div class="dropdown profile-element">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{Auth::user()->name }}</strong>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{Auth::user()->fullName }}</strong>
                              </span> <span class="text-muted text-xs block">Admin <b class="caret"></b></span> </span> </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="profile.html">Profile</a></li>
@@ -22,23 +22,20 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    CP
+                    PC<i class="fa fa-check"></i>
                 </div>
             </li>
             <li>
-                <a href="{{route('admin.index')}}"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span></a>
+                <a href="{{route('admin.dashboard.index')}}"><i class="fa fa-dashboard"></i> <span class="nav-label">Dashboards</span></a>
             </li>
             <li>
-                <a href="{{route('admin.company.index')}}"><i class="fa fa-building-o"></i> <span class="nav-label">Companies</span></a>
+                <a href="{{route('admin.members.index')}}"><i class="fa fa-users"></i> <span class="nav-label">Members</span></a>
             </li>
             <li>
-                <a href="{{route('admin.careers.index')}}"><i class="fa fa-briefcase"></i> <span class="nav-label">Careers</span></a>
+                <a href="{{route('admin.requests.index')}}"><i class="fa fa-rss"></i> <span class="nav-label">Requests</span></a>
             </li>
             <li>
-                <a href="{{route('admin.recruiter.index')}}"><i class="fa fa-building"></i> <span class="nav-label">Recruiters</span></a>
-            </li>
-            <li>
-                <a href="{{route('admin.external.index')}}"><i class="fa fa-external-link-square"></i> <span class="nav-label">External Sites</span></a>
+                <a href="{{route('admin.businesses.index')}}"><i class="fa fa-offices"></i> <span class="nav-label">Businesses</span></a>
             </li>
         </ul>
     </div>

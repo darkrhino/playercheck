@@ -49,23 +49,6 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-4">
-                            <div class="setup-secondary">
-                                <div class="setup-info-module">
-                                    <h2>Protect yourself online</h2>
-                                    <ul class="features-list">
-                                        <li><strong>Unlimited</strong> collaborators</li>
-                                        <li><strong>Unlimited</strong> public repositories</li>
-
-                                        <li class="list-divider"></li>
-
-                                        <li><svg aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg> Great communication</li>
-                                        <li><svg aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg> Frictionless development</li>
-                                        <li><svg aria-hidden="true" class="octicon octicon-check" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path fill-rule="evenodd" d="M12 5l-8 8-4-4 1.5-1.5L4 10l6.5-6.5z"></path></svg> Open source community</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
