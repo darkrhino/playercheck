@@ -25,7 +25,8 @@
         ],
         "psr-4": {
             "PlayerCheck\\": "app/",
-            "PC\\": "PC/"
+            "PC\\": "PC/",
+            "WC\\": "WC/"
         }
     },
     "autoload-dev": {

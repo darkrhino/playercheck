@@ -87,7 +87,7 @@
                 Join the thousands of players already using PlayerCheck to protect themselves, work together, and trade amazing things..
             </p>
             <p class="f3">
-                <a href="/join" class="btn btn-large btn-primary">Sign up for PlayerCheck</a>
+                <a href="/register" class="btn btn-large btn-primary">Sign up for PlayerCheck</a>
             </p>
         </div>
     </div>

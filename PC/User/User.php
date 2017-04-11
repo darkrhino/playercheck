@@ -45,4 +45,5 @@ class User extends Authenticatable
             ->withPivot('added_by_id')
             ->withTimestamps();
     }
+
 }

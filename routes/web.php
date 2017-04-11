@@ -18,3 +18,5 @@ include_once 'business.php';
 include_once 'maps.php';
 include_once 'requests.php';
 include_once 'admin.php';
+include_once 'invites.php';
+include_once 'sites.php';

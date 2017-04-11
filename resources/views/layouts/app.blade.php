@@ -71,6 +71,9 @@
                 <li><a href="{{route('maps.sites')}}">Sites Map</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                @role('staff')
+                <li><a href="{{route('admin.dashboard.index')}}">Admin</a></li>
+                @endrole
                 <li><a href="/logout">Logout</a></li>
             </ul>
             @endif

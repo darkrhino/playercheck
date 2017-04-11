@@ -19,7 +19,6 @@
             </div>
         </div>
         <div class="explore-pjax-container explore-page">
-
             <div class="explore-section" id="explore-featured">
                 <div class="container">
                     <div class="explore-marketing-header">
@@ -68,6 +67,9 @@
                                         </div>
                                     </div>
                                 </div>
+                                {{--<div class="col-xs-12">
+                                    <a class="btn btn-info btn-block" href="{{route('invite.index')}}">Invite a Friend</a>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
