@@ -61,12 +61,14 @@
                 <li><a href="{{route('pages.pricing')}}">Pricing?</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{route('help.index')}}">Help</a></li>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
             </ul>
             @else
             <ul class="nav navbar-nav">
                 <li><a href="{{route('requests.index')}}">Requests</a></li>
+                <li><a href="{{route('help.index')}}">Help</a></li>
                 <li><a href="{{route('maps.stores')}}">Store Map</a></li>
                 <li><a href="{{route('maps.sites')}}">Sites Map</a></li>
             </ul>
@@ -74,6 +76,7 @@
                 @role('staff')
                 <li><a href="{{route('admin.dashboard.index')}}">Admin</a></li>
                 @endrole
+                <li><a href="{{route('settings.index')}}">Settings</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
             @endif
@@ -106,6 +109,7 @@
             js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8&appId=257693841228231";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+    @include('static.notifications')
     @yield('scripts')
 </body>
 </html>

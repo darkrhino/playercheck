@@ -24,4 +24,32 @@ class Business extends Model
             ->withPivot('added_by_id')
             ->withTimestamps();
     }
+
+    public function getApprovalStatusIconAttribute()
+    {
+        if($this->approved != null){
+            return '<span class="text-success"><i class="fa fa-check"></i></span>';
+        }else{
+            return '<span class="text-danger"><i class="fa fa-check"></i></span>';
+        }
+    }
+
+    public function getApprovalStatusIconColourAttribute()
+    {
+        if($this->approved != null){
+            return 'success';
+        }else{
+            return 'danger';
+        }
+    }
+    
+    public function scopeIsApproved($query)
+    {
+        return $query->where('approved', '!=', null);
+    }
+
+    public function scopeIsNotApproved($query)
+    {
+        return $query->where('approved', null);
+    }
 }

@@ -14,6 +14,7 @@
             </h1>
         </div>
     </div>
+
     <div id="js-pjax-container" data-pjax-container="">
         <div class="auth-form px-3" id="login">
             @if (count($errors) > 0)
@@ -28,6 +29,15 @@
                     </div>
                 </div>
             </div>
+            @endif
+            @if(Session::has('passChanged'))
+                <div id="js-flash-container">
+                    <div class="flash flash-full flash-info">
+                        <div class="container">
+                            <p>You have been logged out because you changed your password successfully.</p>
+                        </div>
+                    </div>
+                </div>
             @endif
             {!! Form::open(['accept-charset' => 'UTF-8', 'role' => 'form', 'route' => 'login']) !!}
                 <div class="auth-form-header p-0">

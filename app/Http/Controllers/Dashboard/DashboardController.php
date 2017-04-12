@@ -11,6 +11,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $role = Role::where('name', 'staff')->first();
+        //$user = Auth::user();
+        //$user->attachRole($role);
+        //dd($role->users);
         return view('dashboard.index');
     }
 }

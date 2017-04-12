@@ -11,7 +11,8 @@ class SitesController extends Controller
 {
     public function map()
     {
-        $sites = Site::all();
+        /*$sites = Site::all();*/
+        $sites = collect();
         $counties = Counties::all();
         return view('maps.sites', compact('sites', 'counties'));
     }

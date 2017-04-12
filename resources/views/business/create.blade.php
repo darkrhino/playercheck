@@ -31,7 +31,7 @@
                         </p>
                     </div>
                     <div class="row">
-                        @if(Auth::user()->businesses->count() < 1)
+                        @if(!$business)
                         {!! Form::open(['route' => 'business.store']) !!}
                         <div class="col-md-8">
                             <div class="row">
@@ -99,7 +99,7 @@
                         @else
                         <div class="col-md-8">
                             <div class="alert alert-info">
-                                Your application for "{{Auth::user()->businesses->first()->name}}" is pending verification.
+                                Your application for "{{$business->name}}" is pending verification.
                             </div>
                         </div>
                         @endif

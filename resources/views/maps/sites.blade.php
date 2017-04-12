@@ -27,8 +27,13 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
+                <div class="alert alert-info">
+                    <i class="fa fa-picture-o"></i> Coming Shortly
+                </div>
+            </div>
+            <div class="col-xs-12">
                 <div class="row">
-                    @foreach($counties as $county)
+                    {{--@foreach($counties as $county)
                         <div class="col-xs-12">
                             <div class="row">
                                 <div class="col-xs-12">
@@ -43,9 +48,9 @@
                                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$site->id}}" aria-expanded="false" aria-controls="collapse{{$site->id}}">
                                                         <i class="fa fa-chevron-down"></i>
                                                     </a>
-                                                    {{--<a href="{{route('sites.show', $site->slug)}}">--}}
+                                                    --}}{{--<a href="{{route('sites.show', $site->slug)}}">--}}{{--
                                                         {{$site->name}}
-                                                    {{--</a>--}}
+                                                    --}}{{--</a>--}}{{--
                                                 </h4>
                                             </div>
                                             <div id="collapse{{$site->id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{$site->id}}">
@@ -79,7 +84,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @endforeach--}}
                 </div>
             </div>
         </div>

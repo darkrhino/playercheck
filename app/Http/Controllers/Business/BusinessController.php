@@ -26,7 +26,9 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        return view('business.create');
+        $business = Auth::user()->businesses->first();
+
+        return view('business.create', compact('business'));
     }
 
     /**

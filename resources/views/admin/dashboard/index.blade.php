@@ -32,7 +32,7 @@
                         <h5>Businesses</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">{{'0/0'}}</h1>
+                        <h1 class="no-margins">{{'0/'.$businesses->count()}}</h1>
                     </div>
                 </div>
             </div>
