@@ -10,8 +10,22 @@ class Business extends Model
 
     protected $fillable = [
         'name', 'address_1', 'address_2', 'address_3', 'city', 'county', 'postcode', 'latitude', 'longitude',
-        'company_number', 'primary_phone_number', 'approved', 'approved_by_id'
+        'company_number', 'primary_phone_number', 'approved_by_id', 'approved_at'
     ];
+
+    protected $dates = [
+        'approved_at'
+    ];
+
+    public function scopeApproved($query)
+    {
+        return $query->where('approved_at', '!=', null);
+    }
+
+    public function scopeNotApproved($query)
+    {
+        return $query->where('approved_at', '==', null);
+    }
 
     public function approved_by()
     {
@@ -27,10 +41,10 @@ class Business extends Model
 
     public function getApprovalStatusIconAttribute()
     {
-        if($this->approved != null){
+        if($this->approved){
             return '<span class="text-success"><i class="fa fa-check"></i></span>';
         }else{
-            return '<span class="text-danger"><i class="fa fa-check"></i></span>';
+            return '<span class="text-danger"><i class="fa fa-times"></i></span>';
         }
     }
 

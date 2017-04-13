@@ -35,7 +35,7 @@
                 <a href="{{route('admin.requests.index')}}"><i class="fa fa-rss"></i> <span class="nav-label">Requests</span></a>
             </li>
             <li>
-                <a href="{{route('admin.businesses.index')}}"><i class="fa fa-offices"></i> <span class="nav-label">Businesses</span></a>
+                <a href="{{route('admin.businesses.index')}}"><i class="fa fa-building"></i> <span class="nav-label">Businesses</span></a>
             </li>
         </ul>
     </div>

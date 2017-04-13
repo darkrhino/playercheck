@@ -8,7 +8,7 @@
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>
-                Edit {{$business->name}} {{$business->approvalStatusIcon}}
+                Edit {{$business->name}} {!! $business->approvalStatusIcon !!}
             </h2>
         </div>
         <div class="col-lg-2">
@@ -141,7 +141,18 @@
                                 <h5>Business Controls</h5>
                             </div>
                             <div class="ibox-content">
-
+                                @if(!$business->approved)
+                                {!! Form::open(['route' => ['admin.businesses.approve', $business->id], 'method' => 'patch']) !!}
+                                <button type="submit" class="btn btn-block btn-success">Approve</button>
+                                {!! Form::close() !!}
+                                @else
+                                {!! Form::open(['route' => ['admin.businesses.suspend', $business->id], 'method' => 'patch']) !!}
+                                <button type="submit" class="btn btn-block btn-warning">Suspend</button>
+                                {!! Form::close() !!}
+                                {!! Form::open(['route' => ['admin.businesses.suspend', $business->id], 'method' => 'patch']) !!}
+                                <button type="submit" class="btn btn-block btn-info">Suspend</button>
+                                {!! Form::close() !!}
+                                @endif
                             </div>
                         </div>
                     </div>
