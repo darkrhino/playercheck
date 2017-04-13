@@ -172,6 +172,8 @@ return [
         Laratrust\LaratrustServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
+
 
         /*
          * Application Service Providers...

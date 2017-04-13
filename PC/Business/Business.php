@@ -10,7 +10,7 @@ class Business extends Model
 
     protected $fillable = [
         'name', 'address_1', 'address_2', 'address_3', 'city', 'county', 'postcode', 'latitude', 'longitude',
-        'company_number', 'primary_phone_number', 'approved_by_id', 'approved_at'
+        'company_number', 'primary_phone_contact', 'approved_by_id', 'approved_at'
     ];
 
     protected $dates = [

@@ -12,12 +12,14 @@
             </h2>
         </div>
         <div class="col-lg-2">
-
+            <div class="title-action">
+                <button onclick="$('#edit-form').submit()" class="btn btn-info btn-block">Update</button>
+            </div>
         </div>
     </div>
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
-            {!! Form::open(['route' => ['admin.businesses.update', $business->id], 'method' => 'patch']) !!}
+            {!! Form::open(['id' => 'edit-form', 'route' => ['admin.businesses.update', $business->id], 'method' => 'patch']) !!}
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-xs-12">

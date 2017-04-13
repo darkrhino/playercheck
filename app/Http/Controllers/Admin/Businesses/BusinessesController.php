@@ -31,6 +31,25 @@ class BusinessesController extends Controller
         return view('admin.businesses.edit', compact('business'));
     }
 
+    public function update(Request $request, $id)
+    {
+        $business = Business::find($id);
+        $business->name = $request->input('name');
+        $business->address_1 = $request->input('address_1');
+        $business->address_2 = $request->input('address_2');
+        $business->address_3 = $request->input('address_3');
+        $business->city = $request->input('city');
+        $business->county = $request->input('county');
+        $business->postcode = $request->input('postcode');
+        $business->latitude = $request->input('latitude');
+        $business->longitude = $request->input('longitude');
+        $business->company_number = $request->input('company_number');
+        $business->primary_phone_contact = $request->input('primary_phone_contact');
+        $business->save();
+
+        return Redirect::back()->with('updated', '');
+    }
+
     public function approve($id)
     {
         $business = Business::find($id);

@@ -2,13 +2,14 @@
 
 namespace PlayerCheck\Mail\Invites;
 
+use App\Mail\BeautyMailable;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use PC\User\Invite;
 
-class InviteCreated extends Mailable
+class InviteCreated extends BeautyMailable
 {
     use Queueable, SerializesModels;
 
@@ -33,6 +34,6 @@ class InviteCreated extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.invites.created');
+        return $this->view('emails.invites.created');
     }
 }
