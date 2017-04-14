@@ -19,6 +19,17 @@
                 <h1>Join PlayerCheck</h1>
                 <p class="lead">PlayerCheck brings everyone together to sell and buy safely.</p>
             </div>
+            @if (count($errors) > 0)
+                <div class="col-xs-12">
+                    <div class="alert alert-warning">
+                        <ul class="list-unstyled">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
             <div class="col-xs-12">
                 <div class="setup-header setup-org">
                     <ol class="steps">
