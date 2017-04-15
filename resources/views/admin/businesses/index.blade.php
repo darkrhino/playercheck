@@ -8,6 +8,7 @@
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>Businesses</h2>
+            {!! Breadcrumbs::render() !!}
         </div>
         <div class="col-lg-2">
 

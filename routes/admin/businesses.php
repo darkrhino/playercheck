@@ -8,5 +8,12 @@ Route::group(['prefix' => 'businesses', 'namespace' => 'Businesses'], function()
         Route::patch('/approve', ['as' => 'admin.businesses.approve', 'uses' => 'BusinessesController@approve']);
         Route::patch('/suspend', ['as' => 'admin.businesses.suspend', 'uses' => 'BusinessesController@suspend']);
         Route::patch('/enable', ['as' => 'admin.businesses.enable', 'uses' => 'BusinessesController@enable']);
+        Route::patch('/reject', ['as' => 'admin.businesses.reject', 'uses' => 'BusinessesController@reject']);
+        Route::post('/destroy', ['as' => 'admin.businesses.destroy', 'uses' => 'BusinessesController@destroy']);
+        Route::group(['prefix' => 'members'], function(){
+            Route::get('/', ['as' => 'admin.businesses.members.index', 'uses' => 'MembersController@index']);
+            Route::get('/{id}', ['as' => 'admin.businesses.members.show', 'uses' => 'MembersController@show']);
+            Route::get('/{id}/destroy', ['as' => 'admin.businesses.members.destroy', 'uses' => 'MembersController@destroy']);
+        });
     });
 });

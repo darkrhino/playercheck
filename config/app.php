@@ -173,6 +173,8 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         Snowfire\Beautymail\BeautymailServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+
 
 
         /*
@@ -238,6 +240,7 @@ return [
         'Socialize' => Laravel\Socialite\Facades\Socialite::class,
         'Laratrust'   => Laratrust\LaratrustFacade::class,
         'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
 
     ],
 

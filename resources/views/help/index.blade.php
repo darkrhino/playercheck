@@ -211,14 +211,14 @@
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
-                                    <div class="panel-heading" role="tab" id="headingNine">
+                                    <div class="panel-heading" role="tab" id="headingFourteen">
                                         <h4 class="panel-title">
-                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
                                                 <i class="fa fa-question-circle"></i> How do I leave feedback about a transaction?
                                             </a>
                                         </h4>
                                     </div>
-                                    <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+                                    <div id="collapseFourteen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFourteen">
                                         <div class="panel-body">
                                             <p>
                                                 After a successful "check code" is given you have 14 days to leave

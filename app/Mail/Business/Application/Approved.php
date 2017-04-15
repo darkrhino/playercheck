@@ -6,19 +6,22 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use PC\Business\Business;
 
 class Approved extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $business;
+
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param Business $business
      */
-    public function __construct()
+    public function __construct(Business $business)
     {
-        //
+        $this->business = $business;
     }
 
     /**
@@ -28,6 +31,7 @@ class Approved extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->markdown('emails.business.applications.approved')
+            ->subject($this->business->name.' has been Approved on PlayerCheck');
     }
 }

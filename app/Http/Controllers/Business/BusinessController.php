@@ -4,9 +4,11 @@ namespace PlayerCheck\Http\Controllers\Business;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use PC\Business\Business;
 use PlayerCheck\Http\Controllers\Controller;
+use PlayerCheck\Mail\Business\Application\Recived;
 
 class BusinessController extends Controller
 {
@@ -59,6 +61,7 @@ class BusinessController extends Controller
 
         $business->members()->attach($user->id, ['added_by_id' => $user->id]);
 
+        Mail::to(Auth::user())->send(new Recived($business));
 
         return Redirect::route('business.create')->with('success');
     }

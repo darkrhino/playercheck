@@ -5,9 +5,12 @@ namespace PlayerCheck\Http\Controllers\Admin\Businesses;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use PC\Business\Business;
 use PlayerCheck\Http\Controllers\Controller;
+use PlayerCheck\Mail\Business\Application\Approved;
+use PlayerCheck\Mail\Business\Application\Recived;
 
 class BusinessesController extends Controller
 {
@@ -56,6 +59,8 @@ class BusinessesController extends Controller
         $business->approved_by_id = Auth::user()->id;
         $business->approved_at = Carbon::now();
         $business->save();
+
+        Mail::to($business->members->first())->send(new Approved($business));
 
         return Redirect::back()->with('success', '');
     }

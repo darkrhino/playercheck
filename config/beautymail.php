@@ -18,19 +18,19 @@ return [
     ],
 
     'view' => [
-        'senderName'  => null,
+        'senderName'  => '&copy; Weaponcrates',
         'reminder'    => null,
         'unsubscribe' => null,
         'address'     => null,
 
         'logo'        => [
-            'path'   => '%PUBLIC%/vendor/beautymail/assets/images/sunny/logo.png',
+            'path'   => 'https://d2zx08b2bgj27.cloudfront.net/assets/images/logo-web.png',
             'width'  => '',
             'height' => '',
         ],
 
-        'twitter'  => null,
-        'facebook' => null,
+        'twitter'  => 'https://www.twitter.com/PlayerCheck/',
+        'facebook' => 'https://www.facebook.com/PlayerCheck-1504190733006420/',
         'flickr'   => null,
     ],
 

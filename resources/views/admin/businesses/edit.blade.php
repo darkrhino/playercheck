@@ -10,6 +10,7 @@
             <h2>
                 Edit {{$business->name}} {!! $business->approvalStatusIcon !!}
             </h2>
+            {!! Breadcrumbs::render('admin.businesses.edit', $business) !!}
         </div>
         <div class="col-lg-2">
             <div class="title-action">
@@ -143,18 +144,32 @@
                                 <h5>Business Controls</h5>
                             </div>
                             <div class="ibox-content">
-                                @if(!$business->approved)
-                                {!! Form::open(['route' => ['admin.businesses.approve', $business->id], 'method' => 'patch']) !!}
-                                <button type="submit" class="btn btn-block btn-success">Approve</button>
-                                {!! Form::close() !!}
-                                @else
-                                {!! Form::open(['route' => ['admin.businesses.suspend', $business->id], 'method' => 'patch']) !!}
-                                <button type="submit" class="btn btn-block btn-warning">Suspend</button>
-                                {!! Form::close() !!}
-                                {!! Form::open(['route' => ['admin.businesses.suspend', $business->id], 'method' => 'patch']) !!}
-                                <button type="submit" class="btn btn-block btn-info">Suspend</button>
-                                {!! Form::close() !!}
-                                @endif
+                                <div class="row">
+                                    @if(!$business->approved)
+                                        <div class="col-xs-12">
+                                            {!! Form::open(['route' => ['admin.businesses.approve', $business->id], 'method' => 'patch']) !!}
+                                            <button type="submit" class="btn btn-block btn-success">Approve</button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                        <div class="col-xs-12" style="margin-top: 10px;">
+                                            {!! Form::open(['route' => ['admin.businesses.reject', $business->id]]) !!}
+                                            <button type="submit" class="btn btn-block btn-danger">Reject</button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    @else
+                                        <div class="col-xs-12">
+                                            {!! Form::open(['route' => ['admin.businesses.suspend', $business->id], 'method' => 'patch']) !!}
+                                            <button type="submit" class="btn btn-block btn-warning">Suspend</button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                        <div class="col-xs-12" style="margin-top: 10px;">
+                                            {!! Form::open(['route' => ['admin.businesses.suspend', $business->id], 'method' => 'patch']) !!}
+                                            <button type="submit" class="btn btn-block btn-info">Suspend</button>
+                                            {!! Form::close() !!}
+                                        </div>
+                                    @endif
+                                </div>
+
                             </div>
                         </div>
                     </div>

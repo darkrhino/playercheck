@@ -22,3 +22,4 @@ include_once 'invites.php';
 include_once 'sites.php';
 include_once 'settings.php';
 include_once 'help.php';
+include_once 'control.php';

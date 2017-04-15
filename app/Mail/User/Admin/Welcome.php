@@ -1,27 +1,28 @@
 <?php
 
-namespace PlayerCheck\Mail\Business\Application;
+namespace PlayerCheck\Mail\User\Admin;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use PC\Business\Business;
+use PC\User\User;
 
-class Recived extends Mailable
+class Welcome extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $business;
+    public $user;
 
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param User $user
      */
-    public function __construct(Business $business)
+    public function __construct(User $user)
     {
-        $this->business = $business;
+        $this->user = $user;
     }
 
     /**
@@ -31,7 +32,7 @@ class Recived extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.business.applications.received')
-            ->subject('PlayerCheck Business Application Received');
+        return $this->markdown('emails.user.admin.welcome')
+            ->subject('Welcome to PlayerCheck');
     }
 }

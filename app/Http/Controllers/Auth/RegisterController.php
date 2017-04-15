@@ -3,10 +3,12 @@
 namespace PlayerCheck\Http\Controllers\Auth;
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 use PC\User\User;
 use PlayerCheck\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use PlayerCheck\Mail\User\Admin\Welcome;
 
 class RegisterController extends Controller
 {
@@ -69,12 +71,18 @@ class RegisterController extends Controller
     {
         //$data['date_of_birth'] = $data['dob_y'].'-'.$data['dob_m'].'-'.$data['dob_d'];
 
-        return User::create([
+        $user = User::create([
             'last_name' => $data['last_name'],
             'first_name' => $data['first_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             /*'date_of_birth' => $data['date_of_birth'],*/
         ]);
+
+        Mail::to($user)->send(new Welcome($user));
+
+        return $user;
+
+
     }
 }
