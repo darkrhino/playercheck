@@ -58,6 +58,7 @@
             @if(!Auth::check())
             <ul class="nav navbar-nav">
                 <li><a href="{{route('pages.features')}}">Features</a></li>
+                <li><a href="{{route('pages.business')}}">Business</a></li>
                 <li><a href="{{route('pages.pricing')}}">Pricing?</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">

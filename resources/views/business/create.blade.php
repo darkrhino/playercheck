@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="ibox-content">
                                             <ul class="list-unstyled">
-                                                <li>You must have a business that is registered</li>
+                                                <li>You must have a business that is registered in the United Kingdom</li>
                                                 <li>You must retail airsoft equipment or supply services to players</li>
                                                 <li>You must be able to provide evidence that you are trading</li>
                                                 <li>You must have a accessible legal pages for terms and conditions</li>
