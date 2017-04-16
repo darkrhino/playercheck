@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Career Penguin') :: Agent Control Panel</title>
+    <title>@yield('title', 'PlayerCheck') :: Business Control Panel</title>
     <!-- Fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -11,9 +11,10 @@
     <!-- Toastr style -->
     <link href="{{secure_asset('components/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="{{secure_asset('components/animate.css/animate.min.css')}}" rel="stylesheet">
-    <link href="{{secure_asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{secure_asset('css/admin.css')}}" rel="stylesheet">
     {{-- Fallback FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    @yield('styles')
 </head>
 <body>
 
@@ -27,24 +28,15 @@
                     <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
                         <i class="fa fa-reorder"></i>
                     </button>
-                    <a href="{{route('agent.index')}}" class="navbar-brand">Career Penguin</a>
+                    <a href="{{route('control.dashboard.index')}}" class="navbar-brand">Business Dashboard</a>
                 </div>
                 <div class="navbar-collapse collapse" id="navbar">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a aria-expanded="false" role="button" href="{{route('dashboard')}}"> Back to main website</a>
-                        </li>
-                        <li>
-                            <a aria-expanded="false" role="button" href="{{route('agent.careers.index')}}"> Careers</a>
+                            <a aria-expanded="false" role="button" href="{{route('pages.home')}}"> Back to main website</a>
                         </li>
                     </ul>
                     <ul class="nav navbar-top-links navbar-right">
-                        <li>
-                            <a aria-expanded="false" role="button" href="{{route('agent.agents.index')}}"> Agents</a>
-                        </li>
-                        <li>
-                            <a aria-expanded="false" role="button" href="{{route('agent.settings.index')}}"> Settings</a>
-                        </li>
                         <li>
                             <a href="login.html">
                                 <i class="fa fa-sign-out"></i> Log out
@@ -57,10 +49,10 @@
         @yield('content')
         <div class="footer">
             <div class="pull-right">
-                Agent Dashboard
+                Business Dashboard v17.04
             </div>
             <div>
-                <strong>Copyright</strong> Career Penguin &copy; 2016-{{\Carbon\Carbon::now()->format('Y')}}
+                <strong>Copyright</strong> Player Check &copy; 2016-{{\Carbon\Carbon::now()->format('Y')}}
             </div>
         </div>
 
@@ -90,5 +82,4 @@
 @yield('scripts')
 @include('static.notifications')
 </body>
-
 </html>

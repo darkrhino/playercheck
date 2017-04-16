@@ -2,6 +2,7 @@
 namespace PC\Business;
 
 use Illuminate\Database\Eloquent\Model;
+use PC\Stores\Store;
 use PC\User\User;
 
 class Business extends Model
@@ -10,7 +11,8 @@ class Business extends Model
 
     protected $fillable = [
         'name', 'address_1', 'address_2', 'address_3', 'city', 'county', 'postcode', 'latitude', 'longitude',
-        'company_number', 'primary_phone_contact', 'approved_by_id', 'approved_at'
+        'company_number', 'primary_phone_contact', 'approved_by_id', 'approved_at',
+        'geo_address'
     ];
 
     protected $dates = [
@@ -19,7 +21,7 @@ class Business extends Model
 
     public function scopeApproved($query)
     {
-        return $query->where('approved_at', '!=', null);
+        return $query->where('approved_at', null);
     }
 
     public function scopeNotApproved($query)
@@ -39,6 +41,11 @@ class Business extends Model
             ->withTimestamps();
     }
 
+    public function stores()
+    {
+        return $this->hasMany(Store::class, 'business_id');
+    }
+
     public function getApprovalStatusIconAttribute()
     {
         if($this->approved){
@@ -56,14 +63,15 @@ class Business extends Model
             return 'danger';
         }
     }
-    
-    public function scopeIsApproved($query)
+
+    public function getFullAddress()
     {
-        return $query->where('approved', '!=', null);
+        if($this->geo_address){
+            return $this->geo_address;
+        }else{
+            return $this->address_1.' '.$this->address_2.', '.$this->address_3.', '.$this->city.', '.$this->county.', 
+            '.$this->poststcode;
+        }
     }
 
-    public function scopeIsNotApproved($query)
-    {
-        return $query->where('approved', null);
-    }
 }

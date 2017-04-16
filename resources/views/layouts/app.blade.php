@@ -74,6 +74,9 @@
                 <li><a href="{{route('maps.sites')}}">Sites Map</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                @if(Auth::user()->businesses->count() > 0)
+                <li><a href="{{route('control.dashboard.index')}}">Control</a></li>
+                @endif
                 @role('staff')
                 <li><a href="{{route('admin.dashboard.index')}}">Admin</a></li>
                 @endrole

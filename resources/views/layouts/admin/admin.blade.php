@@ -29,7 +29,7 @@
 
         <div class="footer">
             <div>
-                <strong>Copyright</strong> Career Penguin &copy; 2015-{{\Carbon\Carbon::now()->format('Y')}}
+                <strong>Copyright</strong> PlayerCheck &copy; 2017-{{\Carbon\Carbon::now()->format('Y')}}
             </div>
         </div>
 
