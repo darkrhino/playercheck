@@ -46,7 +46,7 @@
                                     <tbody>
                                     @foreach($business->stores as $store)
                                     <tr>
-                                        <td>{!! $store->name !!}</td>
+                                        <td><a href="{{route('control.store.show', $store->slug)}}">{!! $store->name !!}</a></td>
                                         <td>Project <small>This is example of project</small></td>
                                         <td>Patrick Smith</td>
                                     </tr>
