@@ -74,7 +74,7 @@
                 <li><a href="{{route('maps.sites')}}">Sites Map</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if(Auth::user()->businesses->count() > 0)
+                @if(Auth::user()->businesses->count() > 0 && Auth::user()->hasApprovedBusinesses)
                 <li><a href="{{route('control.dashboard.index')}}">Control</a></li>
                 @endif
                 @role('staff')

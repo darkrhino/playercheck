@@ -28,7 +28,7 @@ class StoreController extends Controller
         return view('control.store.create', compact('business'));
     }
 
-    public function show($slug)
+    public function show($id, $slug)
     {
         $store = Store::findBySlugOrFail($slug);
 

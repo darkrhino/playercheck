@@ -2,6 +2,7 @@
 
 namespace PlayerCheck\Http;
 
+use App\Http\Middleware\IsBusinessMember;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -59,5 +60,6 @@ class Kernel extends HttpKernel
         'role' => \Laratrust\Middleware\LaratrustRole::class,
         'permission' => \Laratrust\Middleware\LaratrustPermission::class,
         'ability' => \Laratrust\Middleware\LaratrustAbility::class,
+        'b.member' => \PlayerCheck\Http\Middleware\IsBusinessMember::class,
     ];
 }
