@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="ibox">
-                        @if($business->approved())
+                        @if(!$business->approved)
                         <div class="ibox-content">
                             <div class="row">
                                 <div class="hidden-xs col-sm-3">
@@ -42,16 +42,16 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Project </th>
-                                        <th>Name </th>
+                                        <th>Requests Processed</th>
+                                        <th>Status</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($business->stores as $store)
                                     <tr>
                                         <td><a href="{{route('control.store.show', [$business->id, $store->slug])}}">{!! $store->name !!}</a></td>
-                                        <td>Project <small>This is example of project</small></td>
-                                        <td>Patrick Smith</td>
+                                        <td>0 Requests</td>
+                                        <td><i class="fa fa-check"></i></td>
                                     </tr>
                                     @endforeach
                                     </tbody>
