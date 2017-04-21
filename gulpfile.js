@@ -9,5 +9,5 @@ elixir(mix => {
 });
 elixir(mix => {
     mix.sass('admin.scss')
-        .version('css/admin.css');
+    .version('css/admin.css');
 });

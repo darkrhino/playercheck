@@ -46,12 +46,12 @@ class User extends Authenticatable
             ->withTimestamps();
     }
 
-    public function getHasApprovedBusinesses()
+    public function getHasApprovedBusinessesAttribute()
     {
         $result = false;
 
-        foreach($this->businesses() as $business){
-            if($business->approved){
+        foreach($this->businesses as $business){
+            if($business->approved()){
                 $result = true;
             }
         }

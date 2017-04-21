@@ -21,13 +21,13 @@
                     <div class="col-xs-12">
                         <div class="ibox">
                             <div class="ibox-title">
-                                <h5>Pending ({{$businesses->where('approved', null)->count()}})</h5>
+                                <h5>Pending ({{$businesses->where('approved_at', null)->count()}})</h5>
                             </div>
                             <div class="ibox-content">
-                                @if($businesses->where('approved', null)->count() > 0)
+                                @if($businesses->where('approved_at', null)->count() > 0)
                                 <div class="table">
                                     <table class="table table-responsive">
-                                        @foreach($businesses->where('approved', null) as $business)
+                                        @foreach($businesses->where('approved_at', null) as $business)
                                             <tr>
                                                 <td><a href="{{route('admin.businesses.show', $business->id)}}">{{$business->name}}</a></td>
                                                 <td>{{$business->created_at->diffForHumans()}}</td>
@@ -44,13 +44,13 @@
                     <div class="col-xs-12">
                         <div class="ibox">
                             <div class="ibox-title">
-                                <h5>Approved ({{$businesses->where('approved', '!=', null)->count()}})</h5>
+                                <h5>Approved ({{$businesses->where('approved_at', '!=', null)->count()}})</h5>
                             </div>
                             <div class="ibox-content">
-                                @if($businesses->where('approved', '!=', null)->count() > 0)
+                                @if($businesses->where('approved_at', '!=', null)->count() > 0)
                                 <div class="table">
                                     <table class="table table-responsive">
-                                        @foreach($businesses->where('approved', '!=', null) as $business)
+                                        @foreach($businesses->where('approved_at', '!=', null) as $business)
                                             <tr>
                                                 <td><a href="{{route('admin.businesses.show', $business->id)}}">{{$business->name}}</a></td>
                                                 <td>{{$business->created_at->diffForHumans()}}</td>

@@ -28,9 +28,9 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        $business = Auth::user()->businesses->first();
+        $businesses = Auth::user()->businesses;
 
-        return view('business.create', compact('business'));
+        return view('business.create', compact('businesses'));
     }
 
     /**
@@ -61,7 +61,9 @@ class BusinessController extends Controller
 
         $business->members()->attach($user->id, ['added_by_id' => $user->id]);
 
-        Mail::to(Auth::user())->send(new Recived($business));
+        if(env('APP_ENV') == 'production'){
+            Mail::to(Auth::user())->send(new Recived($business));
+        }
 
         return Redirect::route('business.create')->with('success');
     }

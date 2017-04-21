@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="ibox">
-                        @if($business->approved)
+                        @if($business->approved())
                         <div class="ibox-content">
                             <div class="row">
                                 <div class="hidden-xs col-sm-3">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <div class="ibox">
-                        @if($business->approved)
+                        @if($business->approved())
                         <div class="ibox-content">
                             <div class="row">
                                 <div class="hidden-xs col-sm-3">

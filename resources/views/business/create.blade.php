@@ -31,9 +31,25 @@
                         </p>
                     </div>
                     <div class="row">
-                        @if(!$business)
-                        {!! Form::open(['route' => 'business.store']) !!}
                         <div class="col-md-8">
+                            @if($businesses)
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="alert alert-info">
+                                        <ul class="list-unstyled">
+                                            @foreach($businesses as $business)
+                                            @if($business->approved_at)
+                                                    <li>Your application for <strong>{{$business->name}}</strong> has been approved.</li>
+                                                @else
+                                                    <li>Your application for "{{$business->name}}" is pending verification.</li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                            {!! Form::open(['route' => 'business.store']) !!}
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="ibox">
@@ -94,15 +110,8 @@
                                     </div>
                                 </div>
                             </div>
+                            {!! Form::close() !!}
                         </div>
-                        {!! Form::close() !!}
-                        @else
-                        <div class="col-md-8">
-                            <div class="alert alert-info">
-                                Your application for "{{$business->name}}" is pending verification.
-                            </div>
-                        </div>
-                        @endif
                         <div class="col-md-4">
                             <div class="row">
                                 <div class="col-xs-12">

@@ -24,6 +24,10 @@ class BusinessesController extends Controller
     {
         $business = Business::find($id);
 
+        if($business->approved()){
+            dd($business);
+        }
+
         return view('admin.businesses.show', compact('business'));
     }
 
@@ -60,7 +64,9 @@ class BusinessesController extends Controller
         $business->approved_at = Carbon::now();
         $business->save();
 
-        Mail::to($business->members->first())->send(new Approved($business));
+        if(env('APP_ENV') == 'production'){
+            Mail::to($business->members->first())->send(new Approved($business));
+        }
 
         return Redirect::back()->with('success', '');
     }
