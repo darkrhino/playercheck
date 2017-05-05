@@ -20,23 +20,14 @@ class Business extends Model
         'approved_at'
     ];
 
-    public function scopeApproved()
+    public function scopeApproved($query)
     {
-        if($this->approved_at != null){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public function scopeForSale($query)
-    {
-        return $query->where('status_id', 1);
+        return $query->where('approved_at', '!=', null);
     }
 
     public function scopeNotApproved($query)
     {
-        return $query->where('approved_at', '==', null);
+        return $query->where('approved_at', null);
     }
 
     public function approved_by()
@@ -63,10 +54,10 @@ class Business extends Model
 
     public function getApprovalStatusIconAttribute()
     {
-        if($this->approved){
-            return '<span class="text-success"><i class="fa fa-check"></i></span>';
+        if($this->approved()){
+            return '<span class="text-info" title="Approved Business"><i class="fa fa-check"></i></span>';
         }else{
-            return '<span class="text-danger"><i class="fa fa-times"></i></span>';
+            return '<span class="text-danger" title="Awaiting Approval"><i class="fa fa-times"></i></span>';
         }
     }
 
