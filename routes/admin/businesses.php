@@ -1,6 +1,8 @@
 <?php
 Route::group(['prefix' => 'businesses', 'namespace' => 'Businesses'], function(){
     Route::get('/', ['as' => 'admin.businesses.index', 'uses' => 'BusinessesController@index']);
+    Route::get('/create', ['as' => 'admin.businesses.create', 'uses' => 'BusinessesController@create']);
+    Route::post('/store', ['as' => 'admin.businesses.store', 'uses' => 'BusinessesController@store']);
     Route::group(['prefix' => '{id}'], function(){
         Route::get('/', ['as' => 'admin.businesses.show', 'uses' => 'BusinessesController@show']);
         Route::get('/edit', ['as' => 'admin.businesses.edit', 'uses' => 'BusinessesController@edit']);

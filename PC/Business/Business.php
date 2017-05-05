@@ -2,6 +2,7 @@
 namespace PC\Business;
 
 use Illuminate\Database\Eloquent\Model;
+use PC\Sites\Site;
 use PC\Stores\Store;
 use PC\User\User;
 
@@ -12,16 +13,20 @@ class Business extends Model
     protected $fillable = [
         'name', 'address_1', 'address_2', 'address_3', 'city', 'county', 'postcode', 'latitude', 'longitude',
         'company_number', 'primary_phone_contact', 'approved_by_id', 'approved_at',
-        'geo_address'
+        'geo_address', 'email'
     ];
 
     protected $dates = [
         'approved_at'
     ];
 
-    public function scopeApproved($query)
+    public function scopeApproved()
     {
-        return $query->where('approved_at', '!=', null);
+        if($this->approved_at != null){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public function scopeForSale($query)
@@ -51,9 +56,14 @@ class Business extends Model
         return $this->hasMany(Store::class, 'business_id');
     }
 
+    public function sites()
+    {
+        return $this->hasMany(Site::class, 'business_id');
+    }
+
     public function getApprovalStatusIconAttribute()
     {
-        if($this->approved()){
+        if($this->approved){
             return '<span class="text-success"><i class="fa fa-check"></i></span>';
         }else{
             return '<span class="text-danger"><i class="fa fa-times"></i></span>';
@@ -62,7 +72,7 @@ class Business extends Model
 
     public function getApprovalStatusIconColourAttribute()
     {
-        if($this->approved()){
+        if($this->approved){
             return 'success';
         }else{
             return 'danger';

@@ -11,7 +11,9 @@
             {!! Breadcrumbs::render() !!}
         </div>
         <div class="col-lg-2">
-
+            <div class="title-action">
+                <a class="btn btn-primary" href="{{route('admin.businesses.create')}}">Add Business</a>
+            </div>
         </div>
     </div>
     <div class="wrapper wrapper-content animated fadeInRight">

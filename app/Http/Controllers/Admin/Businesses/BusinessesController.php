@@ -24,7 +24,7 @@ class BusinessesController extends Controller
     {
         $business = Business::find($id);
 
-        if($business->approved()){
+        if($business->approved){
             dd($business);
         }
 
@@ -55,6 +55,34 @@ class BusinessesController extends Controller
         $business->save();
 
         return Redirect::back()->with('updated', '');
+    }
+
+    public function create()
+    {
+        return view('admin.businesses.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'address_1' => 'required',
+            'postcode' => 'required',
+            'company_number' => 'required',
+            'primary_phone_contact' => 'required'
+        ]);
+
+        $user = Auth::user();
+
+        $business = Business::create([
+            'name' => $request->input('name'),
+            'address_1' => $request->input('address_1'),
+            'postcode' => $request->input('postcode'),
+            'company_number' => $request->input('company_number'),
+            'primary_phone_contact' => $request->input('primary_phone_contact')
+        ]);
+
+        return Redirect::route('admin.businesses.show', $business['slug']);
     }
 
     public function approve($id)

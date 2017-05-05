@@ -52,7 +52,7 @@
                         <h5>Sites</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">{{'0/0'}}</h1>
+                        <h1 class="no-margins">{{'0/'.$sites->count()}}</h1>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                         <h5>Stores</h5>
                     </div>
                     <div class="ibox-content">
-                        <h1 class="no-margins">{{'0/0'}}</h1>
+                        <h1 class="no-margins">{{'0/'.$stores->count()}}</h1>
                     </div>
                 </div>
             </div>

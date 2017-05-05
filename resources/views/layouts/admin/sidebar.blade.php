@@ -37,6 +37,12 @@
             <li>
                 <a href="{{route('admin.businesses.index')}}"><i class="fa fa-building"></i> <span class="nav-label">Businesses</span></a>
             </li>
+            <li>
+                <a href="{{route('admin.sites.index')}}"><i class="fa fa-map-o"></i> <span class="nav-label">Sites</span></a>
+            </li>
+            <li>
+                <a href="{{route('admin.stores.index')}}"><i class="fa fa-map-pin"></i> <span class="nav-label">Stores</span></a>
+            </li>
         </ul>
     </div>
 </nav>
