@@ -24,10 +24,6 @@ class BusinessesController extends Controller
     {
         $business = Business::find($id);
 
-        if($business->approved){
-            dd($business);
-        }
-
         return view('admin.businesses.show', compact('business'));
     }
 

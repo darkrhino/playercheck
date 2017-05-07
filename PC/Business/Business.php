@@ -22,7 +22,7 @@ class Business extends Model
 
     public function scopeApproved($query)
     {
-        return $query->where('approved_at', '!=', null);
+        return $query->whereNotNull('approved_at');
     }
 
     public function scopeNotApproved($query)
@@ -54,7 +54,7 @@ class Business extends Model
 
     public function getApprovalStatusIconAttribute()
     {
-        if($this->approved()){
+        if($this->approved_at != null) {
             return '<span class="text-info" title="Approved Business"><i class="fa fa-check"></i></span>';
         }else{
             return '<span class="text-danger" title="Awaiting Approval"><i class="fa fa-times"></i></span>';
@@ -63,7 +63,7 @@ class Business extends Model
 
     public function getApprovalStatusIconColourAttribute()
     {
-        if($this->approved){
+        if($this->approved_at != null){
             return 'success';
         }else{
             return 'danger';
