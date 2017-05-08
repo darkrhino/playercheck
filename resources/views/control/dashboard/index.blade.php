@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="page-heading">
                         @if($business->approved)
-                        <a class="btn btn-default pull-right" href="{{route('business.edit', $business->id)}}"><i class="fa fa-cog"></i></a>
+                        <a class="btn btn-default pull-rightnat" href="{{route('business.edit', $business->id)}}"><i class="fa fa-cog"></i></a>
                         @endif
                         <h2>{{$business->name}} {!! $business->approvalStatusIcon !!}</h2>
                     </div>
