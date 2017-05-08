@@ -56,6 +56,7 @@
                            type="password">
                     <input class="btn btn-primary btn-block" data-disable-with="Signing in…" name="commit"
                            tabindex="3" type="submit" value="Sign in">
+                    <a class="btn btn-facebook btn-block loginBtn loginBtn--facebook" href="/login/facebook">Sign in with Facebook</a>
                 </div>
             {!! Form::close() !!}
             <p class="create-account-callout mt-3">
