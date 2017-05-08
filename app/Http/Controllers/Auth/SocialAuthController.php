@@ -17,7 +17,7 @@ class SocialAuthController extends Controller
 
     public function callback($provider)
     {
-        $user = Socialite::with($provider)->fields(['name', 'email', 'first_name', 'last_name', 'gender', 'age_range', 'location'])->user();
+        $user = Socialite::with($provider)->fields(['name', 'email', 'first_name', 'last_name'])->user();
 
         $userDb = User::where('email', $user->user['email'])->first();
         if ($userDb == null) {
