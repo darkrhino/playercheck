@@ -82,25 +82,32 @@
                             </div>
                             @if($business->sites->count() < 1)
                             <div class="ibox-content text-center">
-                                <a href="{{route('admin.sites.create', $business->id)}}" class="btn btn-primary">Create Site</a>
+                                <a href="{{route('admin.sites.create', ['business_id' => $business->id])}}" class="btn btn-primary">Create Site</a>
                             </div>
                             @else
                             <div class="ibox-content">
-                                <div class="table">
-                                    <table class="table table-responsive">
-                                        @foreach($business->sites as $site)
-                                            <tr>
-                                                <td><a href="{{route('admin.sites.show', $site->id)}}">{{$site->name}}</a></td>
-                                                <td>{{$site->created_at->diffForHumans()}}</td>
-                                                <td>
-                                                    {{--<div class="btn-group btn-group-xs" role="group" aria-label="Tools">
-                                                        <button title="Remove User" @if($business->members->count() < 2) disabled @endif onclick="window.location.href = {{route('admin.businesses.members.destroy', [$business->id, $member->id])}}" class="btn btn-danger"><i class="fa fa-ban"></i></button>
-                                                    </div>--}}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                </div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Members</th>
+                                        <th>Attached Store</th>
+                                        <th>Created</th>
+                                        <th>Approved</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($business->sites as $site)
+                                        <tr>
+                                            <td><a href="{{route('admin.sites.show', $site->id)}}">{{$site->name}}</a></td>
+                                            <td>{{$site->members->count()}} ({{$site->inf_members->count()}})</td>
+                                            <td>{{$site->store->name or 'No Store'}}</td>
+                                            <td>{{$site->created_at->diffForHumans()}}</td>
+                                            <td>{{$site->approved_at or 'Not Approved'}}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                             @endif
                         </div>

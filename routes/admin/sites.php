@@ -10,6 +10,8 @@ Route::group(['prefix' => 'sites', 'namespace' => 'Sites'], function(){
         Route::post('/destroy', ['as' => 'admin.sites.destroy', 'uses' => 'SitesController@destroy']);
         Route::group(['prefix' => 'members'], function(){
            Route::get('/', ['as' => 'admin.sites.members.index', 'uses' => 'MembersController@index']);
+           Route::get('/create', ['as' => 'admin.sites.members.create', 'uses' => 'MembersController@create']);
+           Route::post('/store', ['as' => 'admin.sites.members.store', 'uses' => 'MembersController@store']);
            Route::get('/bulk', ['as' => 'admin.sites.members.bulk', 'uses' => 'MembersController@bulk']);
            Route::post('/bulk/store', ['as' => 'admin.sites.members.bulk.store', 'uses' => 'MembersController@bulkStore']);
         });

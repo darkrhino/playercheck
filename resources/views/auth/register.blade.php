@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <a class="btn btn-facebook btn-block loginBtn loginBtn--facebook" href="/login/facebook">Register with Facebook</a>
+                <a class="btn btn-primary btn-facebook btn-block loginBtn loginBtn--facebook" href="/login/facebook">Register with Facebook</a>
             </div>
         </div>
     </div>

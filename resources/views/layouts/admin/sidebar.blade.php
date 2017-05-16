@@ -43,6 +43,9 @@
             <li>
                 <a href="{{route('admin.stores.index')}}"><i class="fa fa-map-pin"></i> <span class="nav-label">Stores</span></a>
             </li>
+            <li>
+                <a href="{{route('admin.defences.index')}}"><i class="fa fa-shield"></i> <span class="nav-label">Defences</span></a>
+            </li>
         </ul>
     </div>
 </nav>

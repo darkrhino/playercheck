@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laratrust\Traits\LaratrustUserTrait;
 use PC\Business\Business;
+use PC\Defences\External;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password', 'dob', 'home_number', 'mobile_number', 'address'
     ];
 
     /**
@@ -39,11 +40,21 @@ class User extends Authenticatable
         return $this->title.' '.$this->getFullNameAttribute();
     }
 
+    public function resets()
+    {
+        return $this->hasMany(Reset::class, 'email', 'email');
+    }
+
     public function businesses()
     {
         return $this->belongsToMany(Business::class, 'business_members')
             ->withPivot('added_by_id')
             ->withTimestamps();
+    }
+
+    public function defences()
+    {
+        return $this->hasMany(External::class, 'user_id', 'id');
     }
 
     public function getHasApprovedBusinessesAttribute()

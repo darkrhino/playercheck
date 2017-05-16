@@ -6,4 +6,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['rol
     include_once 'admin/businesses.php';
     include_once 'admin/sites.php';
     include_once 'admin/stores.php';
+    include_once 'admin/defences.php';
 });

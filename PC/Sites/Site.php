@@ -6,6 +6,7 @@ use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use PC\Business\Business;
+use PC\Stores\Store;
 use PC\User\User;
 
 class Site extends Model
@@ -31,6 +32,11 @@ class Site extends Model
         'approved_at', 'deleted_at'
     ];
 
+    public function scopeApproved($query)
+    {
+        return $query->whereNotNull('approved_at');
+    }
+
     public function business()
     {
         return $this->belongsTo(Business::class, 'business_id');
@@ -39,5 +45,23 @@ class Site extends Model
     public function approved_by_id()
     {
         return $this->belongsTo(User::class, 'approved_by_id');
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany(User::class, 'site_memberships')
+            ->withPivot('added_by_id', 'expires_at', 'infinite_membership')
+            ->withTimestamps();
+    }
+
+    public function inf_members()
+    {
+        return $this->belongsToMany(User::class, 'site_memberships')->wherePivot('infinite_membership', 1);
+    }
+
+    public function store()
+    {
+        return $this->belongsToMany(Store::class, 'site_stores')
+            ->withTimestamps();
     }
 }

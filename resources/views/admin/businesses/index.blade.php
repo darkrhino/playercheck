@@ -27,16 +27,30 @@
                             </div>
                             <div class="ibox-content">
                                 @if($businesses->where('approved_at', null)->count() > 0)
-                                <div class="table">
-                                    <table class="table table-responsive">
-                                        @foreach($businesses->where('approved_at', null) as $business)
-                                            <tr>
-                                                <td><a href="{{route('admin.businesses.show', $business->id)}}">{{$business->name}}</a></td>
-                                                <td>{{$business->created_at->diffForHumans()}}</td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                </div>
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Creator</th>
+                                        <th>Staff Members</th>
+                                        <th>Game Sites</th>
+                                        <th>Retail Stores</th>
+                                        <th>Created</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($businesses->where('approved_at', null) as $business)
+                                    <tr>
+                                        <td><a href="{{route('admin.businesses.show', $business->id)}}">{{$business->name}}</a></td>
+                                        <td><a href="{{route('admin.members.show', $business->members->first()->id)}}">{{$business->members->first()->fullName}}</a></td>
+                                        <td>{{$business->members->count()}}</td>
+                                        <td>{{$business->sites->count()}}</td>
+                                        <td>{{$business->stores->count()}}</td>
+                                        <td>{{$business->created_at->diffForHumans()}}</td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                                 @else
                                 <p>No Pending Applications</p>
                                 @endif
@@ -50,18 +64,32 @@
                             </div>
                             <div class="ibox-content">
                                 @if($businesses->where('approved_at', '!=', null)->count() > 0)
-                                <div class="table">
-                                    <table class="table table-responsive">
+                                <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Creator</th>
+                                            <th>Staff Members</th>
+                                            <th>Game Sites</th>
+                                            <th>Retail Stores</th>
+                                            <th>Created</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
                                         @foreach($businesses->where('approved_at', '!=', null) as $business)
                                             <tr>
                                                 <td><a href="{{route('admin.businesses.show', $business->id)}}">{{$business->name}}</a></td>
+                                                <td><a href="{{route('admin.members.show', $business->members->first()->id)}}">{{$business->members->first()->fullName}}</a></td>
+                                                <td>{{$business->members->count()}}</td>
+                                                <td>{{$business->sites->count()}}</td>
+                                                <td>{{$business->stores->count()}}</td>
                                                 <td>{{$business->created_at->diffForHumans()}}</td>
                                             </tr>
                                         @endforeach
+                                        </tbody>
                                     </table>
-                                </div>
                                 @else
-                                    <p>No Approved Applications</p>
+                                    <p>No Pending Applications</p>
                                 @endif
                             </div>
                         </div>

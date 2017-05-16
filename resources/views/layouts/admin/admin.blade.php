@@ -12,6 +12,7 @@
     <link href="{{secure_asset('components/toastr/toastr.min.css')}}" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="{{elixir('css/admin.css')}}" rel="stylesheet">
+    @yield('styles')
     {{-- Fallback FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 </head>

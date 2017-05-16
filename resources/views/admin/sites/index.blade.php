@@ -12,7 +12,7 @@
         </div>
         <div class="col-lg-2">
             <div class="title-action">
-
+                <a class="btn btn-primary" href="{{route('admin.sites.create')}}">Add Site</a>
             </div>
         </div>
     </div>

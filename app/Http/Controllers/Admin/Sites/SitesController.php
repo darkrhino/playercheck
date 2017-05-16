@@ -16,10 +16,14 @@ class SitesController extends Controller
         return view('admin.sites.index', compact('sites'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
         $sites = Site::all();
-        return view('admin.sites.create', compact('sites'));
+        $business = null;
+        if($request->query('business_id')){
+            $business = Business::find($request->query('business_id'));
+        }
+        return view('admin.sites.create', compact('sites', 'business'));
     }
 
     public function show($id)
@@ -28,7 +32,7 @@ class SitesController extends Controller
         return view('admin.sites.show', compact('site'));
     }
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
@@ -38,7 +42,12 @@ class SitesController extends Controller
             'phone_number' => 'required',
         ]);
 
-        $business = Business::find($id);
+        if($request->input('business_id')){
+            $business = Business::find($request->input('business_id'));
+            $business_id = $business->id;
+        }else{
+            $business_id = null;
+        }
 
         $site = Site::create([
             'name' => $request->input('name'),
@@ -51,9 +60,9 @@ class SitesController extends Controller
             'twitter_url' => $request->input('twitter_url'),
             'instagram_url' => $request->input('instagram_url'),
             'linkedin_url' => $request->input('linkedin_url'),
-            'business_id' => $business->id
+            'business_id' => $business_id
         ]);
 
-        return Redirect::route('admin.sites.index', $business->id)->with('success');
+        return Redirect::route('admin.sites.show', $site['id'])->with('success');
     }
 }

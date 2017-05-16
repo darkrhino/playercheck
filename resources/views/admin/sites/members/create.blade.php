@@ -1,5 +1,5 @@
 @extends('layouts.admin.admin')
-@section('title', 'Bulk Member Import')
+@section('title', 'Create Site Member')
 
 @section('styles')
     <link rel="stylesheet" href="{{secure_asset('/assets/css/plugins/datapicker/datepicker3.css')}}">
@@ -15,7 +15,7 @@
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>@yield('title')</h2>
-            {!! Breadcrumbs::render('admin.sites.members.bulk', $site) !!}
+            {!! Breadcrumbs::render('admin.sites.members.create', $site) !!}
         </div>
         <div class="col-lg-2">
             <div class="title-action">
@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="wrapper wrapper-content animated fadeInRight">
-        {!! Form::open(['id' => 'bulkForm', 'route' => ['admin.sites.members.bulk.store', $site->id]]) !!}
+        {!! Form::open(['id' => 'bulkForm', 'route' => ['admin.sites.members.store', $site->id]]) !!}
         <div class="row">
             <div class="col-md-12">
                 <div class="ibox">
