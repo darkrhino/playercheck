@@ -23,3 +23,5 @@ include_once 'sites.php';
 include_once 'settings.php';
 include_once 'help.php';
 include_once 'control.php';
+
+include_once 'ajax/ajax.php';

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laratrust\Traits\LaratrustUserTrait;
 use PC\Business\Business;
 use PC\Defences\External;
+use PC\Request\Request;
 
 class User extends Authenticatable
 {
@@ -55,6 +56,11 @@ class User extends Authenticatable
     public function defences()
     {
         return $this->hasMany(External::class, 'user_id', 'id');
+    }
+
+    public function requests()
+    {
+        return $this->hasMany(Request::class, 'user_id', 'id');
     }
 
     public function getHasApprovedBusinessesAttribute()

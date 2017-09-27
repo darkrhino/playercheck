@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('meta_description', 'A better way to play together')">
     <meta name="keywords" content="@yield('meta_keywords', 'PlayerCheck, UKARA, VCRA, Validation, Airsoft, Used Sales, Used Airsoft')">
     @yield('meta')
@@ -24,8 +24,9 @@
     <link href="//fonts.googleapis.com/css?family=Oswald%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7CRoboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7COpen+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7CTitillium+Web%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic++++++++%7CRoboto+Condensed%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&ver=1.0.0" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @yield('styles')
+    @stack('styles')
 
     <!-- Scripts -->
     <script>
@@ -55,7 +56,7 @@
             <a class="navbar-brand" href="{{route('pages.home')}}">PlayerCheck <i class="fa fa-check"></i></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            @if(!Auth::check())
+            @if(!auth()->check())
             <ul class="nav navbar-nav">
                 <li><a href="{{route('pages.features')}}">Features</a></li>
                 <li><a href="{{route('pages.business')}}">Business</a></li>
@@ -74,7 +75,7 @@
                 <li><a href="{{route('maps.sites')}}">Sites Map</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @if(Auth::user()->businesses->count() > 0 && Auth::user()->hasApprovedBusinesses)
+                @if(auth()->user()->businesses->count() > 0 && auth()->user()->hasApprovedBusinesses)
                 <li><a href="{{route('control.dashboard.index')}}">Control</a></li>
                 @endif
                 @role('staff')
@@ -94,8 +95,14 @@
 @endif
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{mix('js/app.js')}}"></script>
     <script>
+        $.ajaxSetup({
+            headers:
+                {
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr("content")
+                }
+        });
         $(document).keydown(function (e) {
             if(e.target.nodeName != 'INPUT' && e.target.nodeName != 'TEXTAREA') {
                 if (e.keyCode == 83) {
@@ -115,5 +122,6 @@
         }(document, 'script', 'facebook-jssdk'));</script>
     @include('static.notifications')
     @yield('scripts')
+    @stack('scripts')
 </body>
 </html>

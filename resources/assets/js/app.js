@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+import clipboard from 'clipboard'
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -6,6 +8,7 @@
  */
 
 require('./bootstrap');
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
