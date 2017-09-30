@@ -59,6 +59,11 @@ class Site extends Model
         return $this->belongsToMany(User::class, 'site_memberships')->wherePivot('infinite_membership', 1);
     }
 
+    public function applications()
+    {
+        return $this->belongsToMany(User::class, 'site_memberships')->wherePivot('added_by_id', null);
+    }
+
     public function store()
     {
         return $this->belongsToMany(Store::class, 'site_stores')

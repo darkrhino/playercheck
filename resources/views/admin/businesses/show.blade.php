@@ -100,7 +100,7 @@
                                     @foreach($business->sites as $site)
                                         <tr>
                                             <td><a href="{{route('admin.sites.show', $site->id)}}">{{$site->name}}</a></td>
-                                            <td>{{$site->members->count()}} ({{$site->inf_members->count()}})</td>
+                                            <td>{{$site->members->count()}} ({{$site->applications->count()}})</td>
                                             <td>{{$site->store->name or 'No Store'}}</td>
                                             <td>{{$site->created_at->diffForHumans()}}</td>
                                             <td>{{$site->approved_at or 'Not Approved'}}</td>

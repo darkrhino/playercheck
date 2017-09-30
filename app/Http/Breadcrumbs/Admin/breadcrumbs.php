@@ -8,3 +8,4 @@ Breadcrumbs::register('admin.dashboard.index', function($breadcrumbs)
 include_once 'members.php';
 include_once 'businesses.php';
 include_once 'sites.php';
+include_once 'stores.php';

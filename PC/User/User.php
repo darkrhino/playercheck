@@ -8,6 +8,7 @@ use Laratrust\Traits\LaratrustUserTrait;
 use PC\Business\Business;
 use PC\Defences\External;
 use PC\Request\Request;
+use PC\Sites\Site;
 
 class User extends Authenticatable
 {
@@ -74,6 +75,13 @@ class User extends Authenticatable
         }
 
         return $result;
+    }
+
+    public function sites()
+    {
+        return $this->belongsToMany(Site::class, 'site_memberships')
+            ->withPivot('added_by_id', 'expires_at', 'infinite_membership')
+            ->withTimestamps();
     }
 
 }

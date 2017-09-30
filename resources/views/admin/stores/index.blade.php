@@ -1,5 +1,5 @@
 @extends('layouts.admin.admin')
-@section('title', $site->name.' Game Site')
+@section('title', 'Retail Stores')
 
 @push('styles')
     <link rel="stylesheet" href="{{secure_asset('components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
@@ -9,19 +9,11 @@
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
             <h2>@yield('title')</h2>
-            {!! Breadcrumbs::render('admin.sites.show', $site) !!}
+            {!! Breadcrumbs::render('admin.stores.index') !!}
         </div>
         <div class="col-lg-2">
             <div class="title-action">
-                <div class="btn-group">
-                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false" href="{{route('admin.sites.edit', $site->id)}}">
-                        Edit Site <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{route('admin.sites.members.bulk', $site->id)}}">Bulk Member Add</a></li>
-                    </ul>
-                </div>
+                <a class="btn btn-primary" href="{{route('admin.stores.create')}}">Add Store</a>
             </div>
         </div>
     </div>
@@ -32,10 +24,10 @@
             </div>
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="ibox">
                             <div class="ibox-title">
-                                <h5>Site Members</h5>
+                                <h5>Sites</h5>
                             </div>
                             <div class="ibox-content">
                                 <div class="table">
@@ -43,16 +35,24 @@
                                         <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Full Name</th>
-                                            <th>Joined</th>
+                                            <th>Name</th>
+                                            <th>Business</th>
+                                            <th>Members</th>
+                                            <th>Applications</th>
+                                            <th>Updated</th>
+                                            <th>Created</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($site->members as $member)
+                                        @foreach($stores as $store)
                                             <tr>
-                                                <td><a href="{{route('admin.members.show', $member->id)}}">{{$member->id}}</a></td>
-                                                <td><a href="{{route('admin.members.show', $member->id)}}">{{$member->fullName}}</a></td>
-                                                <td>{{$member->created_at->diffForHumans()}}</td>
+                                                <td><a href="{{route('admin.stores.show', $store->id)}}">{{$store->id}}</a></td>
+                                                <td><a href="{{route('admin.stores.show', $store->id)}}">{{$store->name}}</a></td>
+                                                <td><a href="{{route('admin.businesses.show', $store->business->id)}}">{{$store->business->name}}</a></td>
+                                                <td>{{$store->members->count()}}</td>
+                                                <td>{{$store->applications->count()}}</td>
+                                                <td>{{$store->updated_at->diffForHumans()}}</td>
+                                                <td>{{$store->created_at->diffForHumans()}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>

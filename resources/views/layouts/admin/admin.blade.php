@@ -10,9 +10,9 @@
     <link href='//fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     <!-- Toastr style -->
     <link href="{{secure_asset('components/toastr/toastr.min.css')}}" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="{{elixir('css/admin.css')}}" rel="stylesheet">
-    @yield('styles')
+    <link href="{{secure_asset('components/animate.css/animate.min.css')}}" rel="stylesheet">
+    @stack('styles')
+    <link href="{{mix('css/admin.css')}}" rel="stylesheet">
     {{-- Fallback FontAwesome --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 </head>
@@ -39,33 +39,15 @@
 </div>
 <script src="{{secure_asset('components/jquery/dist/jquery.min.js')}}"></script>
 <script src="{{secure_asset('components/bootstrap-sass/assets/javascripts/bootstrap.min.js')}}"></script>
-{{-- Data Tables --}}
-<script src="{{secure_asset('components/datatables.net-dt/js/dataTables.bootstrap.min.js')}}"></script>
-<script src="{{secure_asset('components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
-{{-- Metis Menu --}}
-<script src="{{secure_asset('components/metisMenu/dist/metisMenu.min.js') }}"></script>
-{{-- Slimscroll --}}
-<script src="{{secure_asset('components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 {{--Toster--}}
 <script src="{{secure_asset('components/toastr/toastr.min.js')}}"></script>
-{{--ckeitor--}}
-<script src="/assets/js/plugins/ckeditor/ckeditor.js"></script>
-{{--Other--}}
-<script src="/assets/js/bootstrap-tooltip.js"></script>
-<script src="/assets/js/bootstrap-confirmation.js"></script>
-
-<script src="/assets/js/plugins/datapicker/bootstrap-datepicker.js"></script>
-<script src="/assets/js/jquery.numberFormatter.min.js"></script>
-<script src="/assets/js/imgLiquid-min.js"></script>
 {{--Wow.js--}}
-<script src="/assets/js/plugins/wow/wow.min.js"></script>
+<script src="{{secure_asset('components/wow/dist/wow.min.js')}}"></script>
 {{--Pace.js--}}
 <script src="{{secure_asset('components/PACE/pace.min.js')}}"></script>
-{{--Vue.js--}}
-<script src="/assets/js/plugins/vue/vue.js"></script>
-{{--Main.js--}}
-<script src="/assets/js/main.js"></script>
 @yield('scripts')
+@stack('scripts')
 @include('static.notifications')
 </body>
 </html>
+
