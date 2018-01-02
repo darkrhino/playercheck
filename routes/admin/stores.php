@@ -8,5 +8,7 @@ Route::group(['prefix' => 'stores', 'namespace' => 'Stores'], function(){
         Route::get('/edit', ['as' => 'admin.stores.edit', 'uses' => 'StoresController@edit']);
         Route::patch('/update', ['as' => 'admin.stores.update', 'uses' => 'StoresController@update']);
         Route::post('/destroy', ['as' => 'admin.stores.destroy', 'uses' => 'StoresController@destroy']);
+        Route::get('/approve', ['as' => 'admin.stores.approve', 'uses' => 'StoresController@approve']);
+        Route::get('/reject', ['as' => 'admin.stores.reject', 'uses' => 'StoresController@reject']);
     });
 });

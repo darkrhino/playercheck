@@ -1,18 +1,18 @@
 @extends('layouts.admin.admin')
-@section('title', $member->fullName)
+@section('title', $business->name.' Member Lists')
 
-@section('styles')
-@endsection
+@push('styles')
+@endpush
 
 @section('content')
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>Member: {{$member->titledFullName}}</h2>
-            {!! Breadcrumbs::render('admin.members.show', $member) !!}
+            <h2>@yield('title')</h2>
+            {!! Breadcrumbs::render('admin.businesses.members.index', $business) !!}
         </div>
         <div class="col-lg-2">
             <div class="title-action">
-                <a class="btn btn-info btn-block" href="{{route('admin.members.edit', $member->id)}}">Edit Member</a>
+
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
                     <div class="col-xs-12">
                         <div class="ibox">
                             <div class="ibox-title">
-                                <h5>Member Details</h5>
+                                <h5>Members List</h5>
                             </div>
                             <div class="ibox-content">
 
@@ -33,16 +33,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="ibox">
-                            <div class="ibox-title">
-                                <h5>Member Details</h5>
-                            </div>
-                            <div class="ibox-content">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Staff Members List</h5>
+                    </div>
+                    <div class="ibox-content">
 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -51,5 +47,5 @@
 
 @endsection
 
-@section('scripts')
-@endsection
+@push('scripts')
+@endpush

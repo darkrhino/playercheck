@@ -36,8 +36,13 @@ class Store extends Model
         return $this->belongsTo(Business::class, 'business_id');
     }
 
-    public function approved_by_id()
+    public function approved_by()
     {
         return $this->belongsTo(User::class, 'approved_by_id');
+    }
+
+    public function applications()
+    {
+        return collect();
     }
 }

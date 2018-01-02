@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use PC\Business\Business;
+use PC\User\User;
 use PlayerCheck\Http\Controllers\Controller;
 use PlayerCheck\Mail\Business\Application\Approved;
 use PlayerCheck\Mail\Business\Application\Recived;
@@ -23,8 +24,8 @@ class BusinessesController extends Controller
     public function show($id)
     {
         $business = Business::find($id);
-
-        return view('admin.businesses.show', compact('business'));
+        $users = User::all();
+        return view('admin.businesses.show', compact('business', 'users'));
     }
 
     public function edit($id)
@@ -107,5 +108,16 @@ class BusinessesController extends Controller
         $business = Business::find($id);
 
         return Redirect::back()->with('success', '');
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $business = Business::find($id);
+
+        $business->members()->detach();
+
+        $business->delete();
+
+        return redirect()->route('admin.businesses.index')->with('deleted', '');
     }
 }

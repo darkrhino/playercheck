@@ -1,6 +1,7 @@
 <?php
 namespace PC\Request;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use PC\User\User;
@@ -27,5 +28,14 @@ class Request extends Model
     public function claimed()
     {
         return $this->belongsTo(User::class, 'claimed_id');
+    }
+
+    public function getExpiredAttribute()
+    {
+        if($this->expires_at > Carbon::now()){
+            return 'Expires in '.$this->expires_at->diffForHumans();
+        }else{
+            return 'Expired';
+        }
     }
 }

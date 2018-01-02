@@ -72,8 +72,8 @@ class RegisterController extends Controller
         //$data['date_of_birth'] = $data['dob_y'].'-'.$data['dob_m'].'-'.$data['dob_d'];
 
         $user = User::create([
-            'last_name' => $data['last_name'],
-            'first_name' => $data['first_name'],
+            'last_name' => ucfirst($data['last_name']),
+            'first_name' => ucfirst($data['first_name']),
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             /*'date_of_birth' => $data['date_of_birth'],*/

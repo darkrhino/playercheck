@@ -47,7 +47,15 @@
                                                             <span class="label label-info">Staff</span>
                                                         @endif
                                                     </a></td>
-                                                <td>{{$member->businesses->first()->name or 'No Association'}}</td>
+                                                @if($member->businesses->count() > 0)
+                                                    <td>
+                                                        <a href="{{route('admin.businesses.show', $member->businesses->first()->id)}}">
+                                                            {{$member->businesses->first()->name}}
+                                                        </a>
+                                                    </td>
+                                                @else
+                                                    <td>No Association</td>
+                                                @endif
                                                 <td>{{$member->sites->first()->name or 'No Association'}}</td>
                                                 <td>{{$member->role}}</td>
                                                 <td>{{$member->created_at->diffForHumans()}}</td>

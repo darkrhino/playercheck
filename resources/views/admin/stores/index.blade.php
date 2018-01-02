@@ -37,6 +37,7 @@
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Business</th>
+                                            <th>Approved</th>
                                             <th>Members</th>
                                             <th>Applications</th>
                                             <th>Updated</th>
@@ -49,8 +50,12 @@
                                                 <td><a href="{{route('admin.stores.show', $store->id)}}">{{$store->id}}</a></td>
                                                 <td><a href="{{route('admin.stores.show', $store->id)}}">{{$store->name}}</a></td>
                                                 <td><a href="{{route('admin.businesses.show', $store->business->id)}}">{{$store->business->name}}</a></td>
-                                                <td>{{$store->members->count()}}</td>
-                                                <td>{{$store->applications->count()}}</td>
+                                                @if($store->approved_by)
+                                                <td class="text-primary"><i class="fa fa-check"></i></td>
+                                                @else
+                                                <td class="text-danger"><i class="fa fa-times"></i></td>
+                                                @endif
+                                                <td>0</td>
                                                 <td>{{$store->updated_at->diffForHumans()}}</td>
                                                 <td>{{$store->created_at->diffForHumans()}}</td>
                                             </tr>

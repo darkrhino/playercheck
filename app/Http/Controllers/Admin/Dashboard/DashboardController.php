@@ -2,8 +2,8 @@
 
 namespace PlayerCheck\Http\Controllers\Admin\Dashboard;
 
-use Illuminate\Http\Request;
 use PC\Business\Business;
+use PC\Request\Request;
 use PC\Sites\Site;
 use PC\Stores\Store;
 use PC\User\User;
@@ -17,6 +17,8 @@ class DashboardController extends Controller
         $businesses = Business::all();
         $sites = Site::all();
         $stores = Store::all();
-        return view('admin.dashboard.index', compact('users', 'businesses', 'sites', 'stores'));
+        $requests = Request::all();
+
+        return view('admin.dashboard.index', compact('users', 'businesses', 'sites', 'stores', 'requests'));
     }
 }

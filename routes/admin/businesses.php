@@ -14,6 +14,7 @@ Route::group(['prefix' => 'businesses', 'namespace' => 'Businesses'], function()
         Route::post('/destroy', ['as' => 'admin.businesses.destroy', 'uses' => 'BusinessesController@destroy']);
         Route::group(['prefix' => 'members'], function(){
             Route::get('/', ['as' => 'admin.businesses.members.index', 'uses' => 'MembersController@index']);
+            Route::post('/', ['as' => 'admin.businesses.members.store', 'uses' => 'MembersController@store']);
             Route::get('/{user-id}', ['as' => 'admin.businesses.members.show', 'uses' => 'MembersController@show']);
             Route::get('/{user-id}/destroy', ['as' => 'admin.businesses.members.destroy', 'uses' => 'MembersController@destroy']);
         });
